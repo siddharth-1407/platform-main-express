@@ -24,7 +24,7 @@ export function getStructuredOutputPath(): string {
 			structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputMac', 'Lib', 'MacOS');
 			break;
 		case 'linux':
-			if (os.arch() === 'arm64' || os.arch() === 'x64') {
+			if (os.arch() === 'arm64') {
 				structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputLinuxArm64', 'Lib', 'Linux');
 			} else {
 				structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputLinux', 'Lib', 'Linux');
