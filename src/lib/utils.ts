@@ -14,14 +14,8 @@ export function getStructuredOutputPath(): string {
 	let structuredOutputPath: string;
 
 	switch (os.platform()) {
-		case 'win32':
-			structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputWindows', 'Lib', 'Windows');
-			break;
-		case 'darwin':
-			structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputMac', 'Lib', 'MacOS');
-			break;
 		case 'linux':
-			if (os.arch() === 'arm64') {
+			if (os.arch() === 'arm64' || os.arch() === 'x64') {
 				structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputLinuxArm64', 'Lib', 'Linux');
 			} else {
 				structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputLinux', 'Lib', 'Linux');
