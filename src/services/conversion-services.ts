@@ -19,7 +19,7 @@ export async function pdfToPptxService(pdfBuffer: Buffer): Promise<Buffer> {
 		await pdfdoc.initSecurityHandler();
 		await pdfdoc.lock();
 
-		const structuredOutputPath = getStructuredOutputPath();
+		const structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputLinux', 'Lib', 'Linux');
 
 		await PDFNet.addResourceSearchPath(structuredOutputPath);
 
