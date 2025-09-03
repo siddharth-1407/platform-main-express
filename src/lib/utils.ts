@@ -11,9 +11,18 @@ export function cleanupFiles(paths: string[]) {
 }
 
 export function getStructuredOutputPath(): string {
+	console.log('Platform:', os.platform()); // e.g., 'linux'
+	console.log('Architecture:', os.arch()); // e.g., 'x64'
+
 	let structuredOutputPath: string;
 
 	switch (os.platform()) {
+		case 'win32':
+			structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputWindows', 'Lib', 'Windows');
+			break;
+		case 'darwin':
+			structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputMac', 'Lib', 'MacOS');
+			break;
 		case 'linux':
 			if (os.arch() === 'arm64' || os.arch() === 'x64') {
 				structuredOutputPath = path.join(process.cwd(), 'src', 'lib', 'apryse', 'StructuredOutputLinuxArm64', 'Lib', 'Linux');
